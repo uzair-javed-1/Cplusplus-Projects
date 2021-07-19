@@ -1,19 +1,20 @@
 #include <iostream>
 #include <process.h>
+#include <string>
 using namespace std;
 
 int main()
 {
     //count is for total  no of vehicles in  parking
 int count= 0;
-int input_user;
+string  input_user;
 int amount = 0;
     // r is Rickshaw , c is car , b is bike
 int r = 0,c = 0 ,b=0;
 int totalcars ;
 int totalBuses ;
 int totalRickshaws;
-char decision; // to check yes or no ..if you want to delte then press y else n 
+string decision; // to check yes or no ..if you want to delte then press y else n 
 while(true)
 {
     
@@ -26,7 +27,8 @@ cout<< " Press 4 : to show all Record" <<endl;
 cout<< " Press 5 : to delete a record" <<endl;
 cout<< " Press 6 : to close the program1" <<endl;
 cin >> input_user;
-if(input_user == 1 )
+long double n = input_user.find(". ,abcdefghigklmnopqrstuvwzyzABCDEFGHIJKLMNOPQRSTUVWXYz");
+if(input_user == "1" )
 {
     // 1 for Riskshaw 
     if(count<50)
@@ -35,12 +37,17 @@ if(input_user == 1 )
     r++; // rickshaw added
     count++;
     amount=amount + 100;
+     if (n==0){
+    cout<< " wrong datatype for input ";
+    }
+    else
       cout<< "\n Riskshaw added \n";
      }
-  else
+
+    else
     cout<< "\nParking is already full you can't add any vehicle .\n \n";
 }
-else if(input_user ==2 )
+else if(input_user =="2" )
 { // 2 for car
     if(count<50) // we want to add vechicle according to our place in our garage or parking . the size of our parking is for 50 vechile.
     
@@ -93,7 +100,8 @@ else if(input_user ==5)
     cout<< "\n Warning: do you really want to delte the record , once you delte then you could't get whole record ";
     cout<< "Press 'Y' to dete and 'N' to cancel the deletion ";
     cin >> decision;
-    if (decision == 'y' ||  decision == 'Y' )
+ long  double n  = decision.find (".");
+    if (decision == "y" ||  decision == "Y" || n==0 )
     {
         b = 0; // Buses deleted
         c=0;
@@ -104,15 +112,17 @@ else if(input_user ==5)
      totalBuses = 0;
       totalRickshaws= 0;
     }
+
     else 
     {
         cout << " \n your record is not delted ";
     }
 }
 else if (input_user==6)
-{ cout<< " if you want to close Press 'y'  : " ;
+{ cout<< " if you want to close Press 'y'  else click whateve from keyboard except y: " ;
 cin >> decision;
-if (decision == 'y' || decision == 'Y' )
+long double n = decision.find ('.');
+if (decision == "y" || decision == "Y" || n==0 )
     exit(1);
     else 
     cout<< " \n you are on Program : \n" ;
